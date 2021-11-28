@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>白嫖,还得是你 | Manchi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Manchi,Manchi's Blog" />
+  
+  <meta name="description" content="作为一名初级前端(bug)开发攻城狮,有什么是比白嫖更快乐的呢?除了饺子…曹贼,我给你们准备了一些开发过程中比较常见的js函数块,碰见了直接嫖就行了。 函数的节流与防抖节流1234567891011121314151617181920212223242526&#x2F;** * 函数节流  规定时间内多次触发只执行一次 *&#x2F;throttle(fn,delay)&amp;#123;  var lastTime;  v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="白嫖,还得是你">
+<meta property="og:url" content="https://corn0124.cn/2021/11/28/%E7%99%BD%E5%AB%96-%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0/index.html">
+<meta property="og:site_name" content="Manchi">
+<meta property="og:description" content="作为一名初级前端(bug)开发攻城狮,有什么是比白嫖更快乐的呢?除了饺子…曹贼,我给你们准备了一些开发过程中比较常见的js函数块,碰见了直接嫖就行了。 函数的节流与防抖节流1234567891011121314151617181920212223242526&#x2F;** * 函数节流  规定时间内多次触发只执行一次 *&#x2F;throttle(fn,delay)&amp;#123;  var lastTime;  v">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-28T07:23:34.000Z">
+<meta property="article:modified_time" content="2021-11-28T08:26:49.973Z">
+<meta property="article:author" content="Manchi">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Manchi&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Manchi&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        简单一点，单纯一点，快乐一点
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Manchi" target="_blank" href="//corn0124.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/xxbxiaobai">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/6931987049">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-白嫖-还得是你" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      白嫖,还得是你
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2021-11-28
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>作为一名初级前端(bug)开发攻城狮,有什么是比白嫖更快乐的呢?除了饺子…<br>曹贼,我给你们准备了一些开发过程中比较常见的js函数块,碰见了直接嫖就行了。</p>
+<h4 id="函数的节流与防抖"><a href="#函数的节流与防抖" class="headerlink" title="函数的节流与防抖"></a>函数的节流与防抖</h4><h5 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 函数节流  规定时间内多次触发只执行一次</span><br><span class="line"> */</span><br><span class="line">throttle(fn,delay)&#123;</span><br><span class="line">  var lastTime;</span><br><span class="line">  var timer;</span><br><span class="line">  var delay = delay || 200;</span><br><span class="line">  <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    var args = arguments;</span><br><span class="line">    // 记录当前函数触发的时间</span><br><span class="line">    var nowTime = Date.now();</span><br><span class="line">    <span class="keyword">if</span> (lastTime &amp;&amp; nowTime - lastTime &lt; delay) &#123;</span><br><span class="line">      clearTimeout(timer);</span><br><span class="line">      timer = setTimeout(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        // 记录上一次函数触发的时间</span><br><span class="line">        lastTime = nowTime;</span><br><span class="line">        // 修正this指向问题</span><br><span class="line">        fn.apply(this, args);</span><br><span class="line">      &#125;, delay);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      lastTime = nowTime;</span><br><span class="line">      fn.apply(this, args);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 函数防抖  规定时间内结束后在触发，若在此时间内多次触发则重新计时</span><br><span class="line"> */</span><br><span class="line">debounce(fn, delay) &#123;</span><br><span class="line">  // 记录上一次的延时器</span><br><span class="line">  var timer = null;</span><br><span class="line">  var delay = delay || 200;</span><br><span class="line">  <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    var args = arguments;</span><br><span class="line">    var that = this;</span><br><span class="line">    // 清除上一次延时器</span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        fn.apply(that,args)</span><br><span class="line">    &#125;, delay);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="脱敏函数-用户隐私保护"><a href="#脱敏函数-用户隐私保护" class="headerlink" title="脱敏函数-用户隐私保护"></a>脱敏函数-用户隐私保护</h4><h5 id="姓名脱敏"><a href="#姓名脱敏" class="headerlink" title="姓名脱敏"></a>姓名脱敏</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> nameProtect(str) &#123;</span><br><span class="line">      <span class="keyword">if</span> (null != str &amp;&amp; str != undefined) &#123;</span><br><span class="line">        <span class="keyword">if</span> (str.length &lt;= 3) &#123;</span><br><span class="line">          <span class="built_in">return</span> <span class="string">&quot;*&quot;</span> + str.substring(1, str.length);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (str.length &gt; 3 &amp;&amp; str.length &lt;= 6) &#123;</span><br><span class="line">          <span class="built_in">return</span> <span class="string">&quot;**&quot;</span> + str.substring(2, str.length);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (str.length &gt; 6) &#123;</span><br><span class="line">          <span class="built_in">return</span> str.substring(0, 2) + <span class="string">&quot;****&quot;</span> + str.substring(6, str.length);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="身份证脱敏"><a href="#身份证脱敏" class="headerlink" title="身份证脱敏"></a>身份证脱敏</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> idCardProtect(value, row, index) &#123;</span><br><span class="line">      var len = value.length;</span><br><span class="line">      var xx = value.substring(1, len - 1);</span><br><span class="line">      var values = value.replace(xx, <span class="string">&quot;****************&quot;</span>);</span><br><span class="line">      <span class="built_in">return</span> values;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="手机号脱敏"><a href="#手机号脱敏" class="headerlink" title="手机号脱敏"></a>手机号脱敏</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> mobileProtect(value, row, index) &#123;</span><br><span class="line">      var len = value.length;</span><br><span class="line">      var xx = value.substring(3, len - 4);</span><br><span class="line">      var values = value.replace(xx, <span class="string">&quot;****&quot;</span>);</span><br><span class="line">      <span class="built_in">return</span> values;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="时间篇"><a href="#时间篇" class="headerlink" title="时间篇"></a>时间篇</h4><h5 id="根据秒数算展示时间"><a href="#根据秒数算展示时间" class="headerlink" title="根据秒数算展示时间"></a>根据秒数算展示时间</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> setNumer(<span class="built_in">times</span>) &#123; </span><br><span class="line">	var h = Math.floor(<span class="built_in">times</span>/3600);</span><br><span class="line">	var m = Math.floor(<span class="built_in">times</span>%3600/60);</span><br><span class="line">	var s = Math.floor(<span class="built_in">times</span>%60);</span><br><span class="line">	//转换格式</span><br><span class="line">	h = h&gt;9?h:<span class="string">&quot;0&quot;</span>+h;</span><br><span class="line">	m = m&gt;9?m:<span class="string">&quot;0&quot;</span>+m;</span><br><span class="line">	s = s&gt;9?s:<span class="string">&quot;0&quot;</span>+s; </span><br><span class="line">	//在页面上显示</span><br><span class="line">	<span class="built_in">return</span> &#123;h:h,m:m,s:s&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="根据两个时间差毫秒数计算相差几天"><a href="#根据两个时间差毫秒数计算相差几天" class="headerlink" title="根据两个时间差毫秒数计算相差几天"></a>根据两个时间差毫秒数计算相差几天</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> diffTime(<span class="built_in">times</span>) &#123; //根据两个时间差毫秒数计算相差几天</span><br><span class="line">	var timediff = <span class="built_in">times</span>;</span><br><span class="line">	//			var weeks = Math.floor(timediff / (1000 * 60 * 60 * 24 * 7));</span><br><span class="line">	//			timediff -= weeks * (1000 * 60 * 60 * 24 * 7);</span><br><span class="line"></span><br><span class="line">	var days = Math.floor(timediff / (1000 * 60 * 60 * 24));</span><br><span class="line">	timediff -= days * (1000 * 60 * 60 * 24);</span><br><span class="line"></span><br><span class="line">	var hours = Math.floor(timediff / (1000 * 60 * 60));</span><br><span class="line">	timediff -= hours * (1000 * 60 * 60);</span><br><span class="line"></span><br><span class="line">	var mins = Math.floor(timediff / (1000 * 60));</span><br><span class="line">	timediff -= mins * (1000 * 60);</span><br><span class="line"></span><br><span class="line">	var secs = Math.floor(timediff / 1000);</span><br><span class="line">	timediff -= secs * 1000;</span><br><span class="line">	//			console.log(days + <span class="string">&quot; 天, &quot;</span> + hours + <span class="string">&quot;　小时, &quot;</span> + mins + <span class="string">&quot; 分&quot;</span>+secs+<span class="string">&quot;秒&quot;</span>);</span><br><span class="line">	var time_diff = &#123;</span><br><span class="line">		//				weeks : weeks,</span><br><span class="line">		days: days,</span><br><span class="line">		hours: hours,</span><br><span class="line">		mins: mins,</span><br><span class="line">		secs: secs</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> time_diff;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="获得当前时间"><a href="#获得当前时间" class="headerlink" title="获得当前时间"></a>获得当前时间</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> getNowTime(<span class="built_in">type</span>)&#123;</span><br><span class="line">	var date = new Date();</span><br><span class="line">	var year = date.getFullYear();</span><br><span class="line">	var month= date.getMonth()+1;</span><br><span class="line">	var day  = date.getDate();</span><br><span class="line">	month = month&gt;9?month:<span class="string">&quot;0&quot;</span>+month;</span><br><span class="line">	day   = day&gt;9?day:<span class="string">&quot;0&quot;</span>+day; </span><br><span class="line">	var str;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">type</span>==1)&#123;</span><br><span class="line">		str = year+<span class="string">&quot;年&quot;</span>+month+<span class="string">&quot;月&quot;</span>+day+<span class="string">&quot;日&quot;</span></span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		str = year+<span class="string">&quot;-&quot;</span>+month+<span class="string">&quot;-&quot;</span>+day</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> str</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="获得当前时间-1"><a href="#获得当前时间-1" class="headerlink" title="获得当前时间"></a>获得当前时间</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> getNowTime(<span class="built_in">type</span>)&#123;</span><br><span class="line">	var date = new Date();</span><br><span class="line">	var year = date.getFullYear();</span><br><span class="line">	var month= date.getMonth()+1;</span><br><span class="line">	var day  = date.getDate();</span><br><span class="line">	month = month&gt;9?month:<span class="string">&quot;0&quot;</span>+month;</span><br><span class="line">	day   = day&gt;9?day:<span class="string">&quot;0&quot;</span>+day; </span><br><span class="line">	var str;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">type</span>==1)&#123;</span><br><span class="line">		str = year+<span class="string">&quot;年&quot;</span>+month+<span class="string">&quot;月&quot;</span>+day+<span class="string">&quot;日&quot;</span></span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		str = year+<span class="string">&quot;-&quot;</span>+month+<span class="string">&quot;-&quot;</span>+day</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> str</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="数组篇"><a href="#数组篇" class="headerlink" title="数组篇"></a>数组篇</h4><h5 id="普通数组去重"><a href="#普通数组去重" class="headerlink" title="普通数组去重"></a>普通数组去重</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> arryClear(arr)&#123;</span><br><span class="line">	var tmp = new Array();</span><br><span class="line">	<span class="keyword">for</span>(var i <span class="keyword">in</span> arr)&#123;</span><br><span class="line">		<span class="keyword">if</span>(tmp.indexOf(arr[i])==-1)&#123;</span><br><span class="line">			tmp.push(arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="数组对象去重复"><a href="#数组对象去重复" class="headerlink" title="数组对象去重复"></a>数组对象去重复</h5><p>参数说明:arry数组,Object根据的对象名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> arryClearObj(arry,Object)&#123;</span><br><span class="line">	var result = [];</span><br><span class="line">	var obj = &#123;&#125;;</span><br><span class="line">	<span class="keyword">for</span>(var j=0;j&lt;arry.length;j++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!obj[arry[j][Object]])&#123;</span><br><span class="line">		   result.push(arry[j]);</span><br><span class="line">		   obj[arry[j][Object]] = <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h4><h5 id="验证手机号码"><a href="#验证手机号码" class="headerlink" title="验证手机号码"></a>验证手机号码</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> checkPhone(num)&#123;</span><br><span class="line">	const zz = /^1[3456789]\d&#123;9&#125;$/;</span><br><span class="line">	<span class="keyword">if</span>(!zz.test(num))&#123;</span><br><span class="line">		uni.showToast(&#123;</span><br><span class="line">			title : <span class="string">&quot;请输入正确的手机号码&quot;</span>,</span><br><span class="line">			icon  : <span class="string">&quot;none&quot;</span></span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="built_in">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="邮箱验证"><a href="#邮箱验证" class="headerlink" title="邮箱验证"></a>邮箱验证</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> checkEmail(num)&#123;</span><br><span class="line">	const zz = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]&#123;2,3&#125;)&#123;1,2&#125;)$/;</span><br><span class="line">	<span class="keyword">if</span>(!zz.test(num))&#123;</span><br><span class="line">		uni.showToast(&#123;</span><br><span class="line">			title : <span class="string">&quot;邮箱格式不正确&quot;</span>,</span><br><span class="line">			icon  : <span class="string">&quot;none&quot;</span></span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="built_in">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="内存字节转换"><a href="#内存字节转换" class="headerlink" title="内存字节转换"></a>内存字节转换</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> conver(<span class="built_in">limit</span>)&#123;  </span><br><span class="line">	var size = <span class="string">&quot;&quot;</span>;  </span><br><span class="line">	<span class="keyword">if</span>( <span class="built_in">limit</span> &lt; 0.1 * 1024 )&#123; //如果小于0.1KB转化成B  </span><br><span class="line">		size = limit.toFixed(2) + <span class="string">&quot;B&quot;</span>;    </span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">limit</span> &lt; 0.1 * 1024 * 1024 )&#123;//如果小于0.1MB转化成KB  </span><br><span class="line">		size = (<span class="built_in">limit</span> / 1024).toFixed(2) + <span class="string">&quot;KB&quot;</span>;              </span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">limit</span> &lt; 0.1 * 1024 * 1024 * 1024 * 1024)&#123; //如果小于0.1GB转化成MB  </span><br><span class="line">		// size = (<span class="built_in">limit</span> / (1024 * 1024)).toFixed(2) + <span class="string">&quot;MB&quot;</span>;  </span><br><span class="line">		size = (<span class="built_in">limit</span> / (1024 * 1024)).toFixed(2);  </span><br><span class="line">	&#125;<span class="keyword">else</span>&#123; //其他转化成GB  </span><br><span class="line">		size = (<span class="built_in">limit</span> / (1024 * 1024 * 1024)).toFixed(2) + <span class="string">&quot;GB&quot;</span>;  </span><br><span class="line">	&#125;  </span><br><span class="line">	var sizestr = size + <span class="string">&quot;&quot;</span>;   </span><br><span class="line">	var len = sizestr.indexOf(<span class="string">&quot;\.&quot;</span>);  </span><br><span class="line">	var dec = sizestr.substr(len + 1, 2);  </span><br><span class="line">	<span class="keyword">if</span>(dec == <span class="string">&quot;00&quot;</span>)&#123;//当小数点后为00时 去掉小数部分  </span><br><span class="line">		<span class="built_in">return</span> sizestr.substring(0,len) + sizestr.substr(len + 3,2);  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="built_in">return</span> sizestr;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年11月28日 16:26</p>
+        <p>原始链接： <a class="post-url" href="/2021/11/28/%E7%99%BD%E5%AB%96-%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0/" title="白嫖,还得是你">https://corn0124.cn/2021/11/28/%E7%99%BD%E5%AB%96-%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0/</a></p>
+        <footer>
+            <a href="https://corn0124.cn">
+                <img src="/images/logo.png" alt="Manchi">
+                Manchi
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我是好人
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://corn0124.cn/2021/11/28/%E7%99%BD%E5%AB%96-%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0/&title=《白嫖,还得是你》 — Manchi&pic=https://corn0124.cnimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://corn0124.cn/2021/11/28/%E7%99%BD%E5%AB%96-%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0/&title=《白嫖,还得是你》 — Manchi&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://corn0124.cn/2021/11/28/%E7%99%BD%E5%AB%96-%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《白嫖,还得是你》 — Manchi&url=https://corn0124.cn/2021/11/28/%E7%99%BD%E5%AB%96-%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0/&via=https://corn0124.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://corn0124.cn/2021/11/28/%E7%99%BD%E5%AB%96-%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://corn0124.cn/2021/11/28/%E7%99%BD%E5%AB%96-%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96"><span class="post-toc-text">函数的节流与防抖</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E8%8A%82%E6%B5%81"><span class="post-toc-text">节流</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E9%98%B2%E6%8A%96"><span class="post-toc-text">防抖</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%84%B1%E6%95%8F%E5%87%BD%E6%95%B0-%E7%94%A8%E6%88%B7%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4"><span class="post-toc-text">脱敏函数-用户隐私保护</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%A7%93%E5%90%8D%E8%84%B1%E6%95%8F"><span class="post-toc-text">姓名脱敏</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E8%BA%AB%E4%BB%BD%E8%AF%81%E8%84%B1%E6%95%8F"><span class="post-toc-text">身份证脱敏</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%89%8B%E6%9C%BA%E5%8F%B7%E8%84%B1%E6%95%8F"><span class="post-toc-text">手机号脱敏</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%97%B6%E9%97%B4%E7%AF%87"><span class="post-toc-text">时间篇</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%A0%B9%E6%8D%AE%E7%A7%92%E6%95%B0%E7%AE%97%E5%B1%95%E7%A4%BA%E6%97%B6%E9%97%B4"><span class="post-toc-text">根据秒数算展示时间</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%A0%B9%E6%8D%AE%E4%B8%A4%E4%B8%AA%E6%97%B6%E9%97%B4%E5%B7%AE%E6%AF%AB%E7%A7%92%E6%95%B0%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%B7%AE%E5%87%A0%E5%A4%A9"><span class="post-toc-text">根据两个时间差毫秒数计算相差几天</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E8%8E%B7%E5%BE%97%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4"><span class="post-toc-text">获得当前时间</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E8%8E%B7%E5%BE%97%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4-1"><span class="post-toc-text">获得当前时间</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84%E7%AF%87"><span class="post-toc-text">数组篇</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%99%AE%E9%80%9A%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D"><span class="post-toc-text">普通数组去重</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E5%8E%BB%E9%87%8D%E5%A4%8D"><span class="post-toc-text">数组对象去重复</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81"><span class="post-toc-text">表单验证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E9%AA%8C%E8%AF%81%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81"><span class="post-toc-text">验证手机号码</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81"><span class="post-toc-text">邮箱验证</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%86%85%E5%AD%98%E5%AD%97%E8%8A%82%E8%BD%AC%E6%8D%A2"><span class="post-toc-text">内存字节转换</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/11/23/%E7%A2%8E%E7%89%87%E5%8C%96%E7%9F%A5%E8%AF%86%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">前端碎片化</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Manchi<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://corn0124.cn",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
