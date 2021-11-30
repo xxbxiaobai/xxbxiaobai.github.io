@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vue各种组件 | Manchi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Manchi,Manchi's Blog" />
+  
+  <meta name="description" content="vue作为当下前端主流开发框架之一，也是前端初学者必备的一个技能点，此处省略好多好多废话，我们直接上重点，点进去就知道了，包你满意。 通讯录组件该组件可以实现按姓名首字母定位，点击联系人拨打电话等功能，效果如下         Mail.vue 12345678910111213141516171819202122232425262728293031323334353637383940414243">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue各种组件">
+<meta property="og:url" content="https://corn0124.cn/2021/11/30/vue%E5%90%84%E7%A7%8D%E7%BB%84%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Manchi">
+<meta property="og:description" content="vue作为当下前端主流开发框架之一，也是前端初学者必备的一个技能点，此处省略好多好多废话，我们直接上重点，点进去就知道了，包你满意。 通讯录组件该组件可以实现按姓名首字母定位，点击联系人拨打电话等功能，效果如下         Mail.vue 12345678910111213141516171819202122232425262728293031323334353637383940414243">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-30T01:15:13.000Z">
+<meta property="article:modified_time" content="2021-11-30T01:52:52.365Z">
+<meta property="article:author" content="Manchi">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Manchi&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Manchi&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        简单一点，单纯一点，快乐一点
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Manchi" target="_blank" href="//corn0124.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/xxbxiaobai">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/6931987049">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-vue各种组件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      vue各种组件
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2021-11-30
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p><code>vue</code>作为当下前端主流开发框架之一，也是前端初学者必备的一个技能点，此处省略好多好多废话，我们直接上重点，点进去就知道了，包你满意。</p>
+<h4 id="通讯录组件"><a href="#通讯录组件" class="headerlink" title="通讯录组件"></a>通讯录组件</h4><p>该组件可以实现按姓名首字母定位，点击联系人拨打电话等功能，效果如下</p>
+<div style="text-align:center">
+    <image src="https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2021-11-30/e3e398dc0b6041ba9e2c53ac91c98856-file.png" height="400px" style="display:inline-block"></image>
+</div>
+
+<p><code>Mail.vue</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;view id=<span class="string">&quot;list&quot;</span>&gt;</span><br><span class="line">    &lt;ul class=<span class="string">&quot;list_user&quot;</span> ref=<span class="string">&quot;listUser&quot;</span>&gt;</span><br><span class="line">      &lt;li v-for=<span class="string">&quot;(item, index) in userData&quot;</span> :key=<span class="string">&quot;index&quot;</span>&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123; item.index &#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">          &lt;li v-for=<span class="string">&quot;(item, index) in item.user&quot;</span> :key=<span class="string">&quot;index&quot;</span> @click.stop=<span class="string">&quot;addName(item.name)&quot;</span>&gt;</span><br><span class="line">            &#123;&#123; item.name &#125;&#125;</span><br><span class="line">          &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    &lt;ul class=<span class="string">&quot;list_index&quot;</span> ref=<span class="string">&quot;Po&quot;</span> &gt;</span><br><span class="line">      &lt;li</span><br><span class="line">        v-for=<span class="string">&quot;(item, index) in userIndex&quot;</span></span><br><span class="line">        :key=<span class="string">&quot;index&quot;</span></span><br><span class="line">         @click=<span class="string">&quot;setScroll(item)&quot;</span></span><br><span class="line">      &gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">  name: <span class="string">&quot;Mail&quot;</span>,</span><br><span class="line">  <span class="function"><span class="title">data</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;&#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    userData: &#123;</span><br><span class="line">      <span class="built_in">type</span>: Array,</span><br><span class="line">      default: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        <span class="built_in">return</span> [];</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  //计算属性</span><br><span class="line">  computed: &#123;</span><br><span class="line">    userIndex: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      <span class="built_in">return</span> this.filterIndex(this.userData);</span><br><span class="line">      console.log(this.filterIndex());</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  //右侧导航数据的调取</span><br><span class="line">  methods: &#123;</span><br><span class="line">    filterIndex(data) &#123;</span><br><span class="line">      var result = [];</span><br><span class="line">      <span class="keyword">for</span> (var i = 0; i &lt; data.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (data[i].index) &#123;</span><br><span class="line">          result.push(data[i].index);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">return</span> result;</span><br><span class="line">    &#125;,</span><br><span class="line">    //右侧导航的距离位置</span><br><span class="line">    <span class="function"><span class="title">diweiPo</span></span>() &#123;</span><br><span class="line">      var dw = this.<span class="variable">$refs</span>.Po.offsetHeight;</span><br><span class="line">      this.<span class="variable">$refs</span>.Po.style.marginTop = -dw / 2 + <span class="string">&quot;px&quot;</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    //设置点击位置的值</span><br><span class="line">    setScroll(ev) &#123;</span><br><span class="line">      // alert(ev)</span><br><span class="line">      // console.log(ev)</span><br><span class="line">      var setzhi = this.<span class="variable">$refs</span>.listUser.getElementsByTagName(<span class="string">&quot;p&quot;</span>);</span><br><span class="line">      <span class="keyword">for</span> (var i = 0; i &lt; setzhi.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (setzhi[i].innerHTML == ev) &#123;</span><br><span class="line">          document.body.scrollTop = setzhi[i].offsetTop;//移动端获取滚动条的位置</span><br><span class="line">		  // document.documentElement.scrollTop = setzhi[i].offsetTop;//pc端获取滚动条的位置</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    //点击姓名</span><br><span class="line">    addName(e)&#123;</span><br><span class="line">		uni.navigateTo(&#123;</span><br><span class="line">			url:<span class="string">&quot;/pages/volunteer/newTask/newTask?name=&quot;</span>+e</span><br><span class="line">		&#125;)</span><br><span class="line">        console.log(e)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">mounted</span></span>() &#123;</span><br><span class="line">    this.diweiPo();</span><br><span class="line">	// console.log(11111111)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">* &#123;</span><br><span class="line">  padding: 0;</span><br><span class="line">  margin: 0;</span><br><span class="line">&#125;</span><br><span class="line">li &#123;</span><br><span class="line">  list-style-type: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#list &#123;</span></span><br><span class="line">  position: relative;</span><br><span class="line">  top: 100rpx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#list .list_user p,</span></span><br><span class="line"><span class="comment">#list .list_user ul &#123;</span></span><br><span class="line">  padding: 0 20rpx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#list .list_user p &#123;</span></span><br><span class="line">  height: 40rpx;</span><br><span class="line">  background: <span class="comment">#F6F7FA;</span></span><br><span class="line">  line-height: 40rpx;</span><br><span class="line">  font-size: 24rpx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#list .list_user ul li &#123;</span></span><br><span class="line">  height: 80rpx;</span><br><span class="line">  height: 80rpx;</span><br><span class="line">  line-height: 80rpx;</span><br><span class="line">  border-bottom:2rpx solid <span class="comment">#E5E5E5 ;</span></span><br><span class="line">  font-size: 28rpx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#list .list_index &#123;</span></span><br><span class="line">  position: fixed;</span><br><span class="line">  top: 50%;</span><br><span class="line">  right: 40rpx;</span><br><span class="line">  z-index: 999;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#list .list_index li&#123;</span></span><br><span class="line">	height: 40rpx;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>index.vue</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;view&gt;</span><br><span class="line">      &lt;view class=<span class="string">&quot;top&quot;</span>&gt;</span><br><span class="line">        &lt;view class=<span class="string">&quot;search&quot;</span>&gt;</span><br><span class="line">		&lt;image src=<span class="string">&quot;../../../static/image/search.png&quot;</span> mode=<span class="string">&quot;&quot;</span>&gt;&lt;/image&gt;</span><br><span class="line">        &lt;input <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> placeholder=<span class="string">&quot;搜索&quot;</span>&gt;</span><br><span class="line">        &lt;text  @click=<span class="string">&quot;click()&quot;</span>&gt;搜索&lt;/text&gt;</span><br><span class="line">      &lt;/view&gt;</span><br><span class="line">      &lt;/view&gt;</span><br><span class="line">      &lt;Mail :userData=<span class="string">&#x27;userData&#x27;</span>&gt;&lt;/Mail&gt;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// import Tabar from <span class="string">&quot;@/components/gobalComponents/Tabar&quot;</span>;</span><br><span class="line">import Mail from <span class="string">&quot;@/components/gobalComponents/Mail&quot;</span>;</span><br><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">  // name: <span class="string">&quot;SearchTask&quot;</span>,</span><br><span class="line">  components: &#123;</span><br><span class="line">    // Tabar,</span><br><span class="line">    Mail</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">data</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      title: <span class="string">&quot;通讯录&quot;</span>,</span><br><span class="line">       userData:[</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;index&#x27;</span>:<span class="string">&#x27;A&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;user&#x27;</span>:[</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;a1&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;a2&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;a3&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;index&#x27;</span>:<span class="string">&#x27;B&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;user&#x27;</span>:[</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;b1&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;b2&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;b3&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;index&#x27;</span>:<span class="string">&#x27;C&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;user&#x27;</span>:[</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;c1&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;c2&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;c3&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;index&#x27;</span>:<span class="string">&#x27;D&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;user&#x27;</span>:[</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;d1&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;d2&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;d3&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;index&#x27;</span>:<span class="string">&#x27;E&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;user&#x27;</span>:[</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;e1&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;e2&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;e3&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&#x27;index&#x27;</span>:<span class="string">&#x27;F&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;user&#x27;</span>:[</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;f1&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;f2&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;f3&#x27;</span>,<span class="string">&#x27;tel&#x27;</span>:<span class="string">&#x27;123456789&#x27;</span>&#125;,</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">     <span class="function"><span class="title">click</span></span>()&#123;</span><br><span class="line">		 alert(111)</span><br><span class="line">	 &#125;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">    <span class="function"><span class="title">created</span></span>()&#123;</span><br><span class="line">		// alert(222)</span><br><span class="line">        // ZWJSBridge.setTitle(&#123; title: <span class="string">&#x27;通讯录&#x27;</span>&#125;) .<span class="keyword">then</span>((result) =&gt; &#123; console.log(result); &#125;).catch((error) =&gt; &#123; console.log(error); &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style  lang=<span class="string">&quot;scss&quot;</span> scoped&gt;</span><br><span class="line">.top&#123;</span><br><span class="line">   position: fixed;</span><br><span class="line">    left: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    height: 100rpx;</span><br><span class="line">    background: <span class="comment">#fff;</span></span><br><span class="line">    z-index: 99999999;</span><br><span class="line">    box-shadow: 0rpx 0rpx 14rpx 0rpx rgba(51, 51, 51, 0.13);</span><br><span class="line">&#125;</span><br><span class="line">  .search&#123;</span><br><span class="line">    width: 672rpx;</span><br><span class="line">    height: 52rpx;</span><br><span class="line">    margin: 24rpx auto;</span><br><span class="line">    // margin-top: 24rpx;</span><br><span class="line">    background: <span class="comment">#F6F7FA;</span></span><br><span class="line">    border-radius: 26rpx;</span><br><span class="line">	image&#123;</span><br><span class="line">		display: inline-block;</span><br><span class="line">		vertical-align: middle;</span><br><span class="line">		width: 26rpx;</span><br><span class="line">		height: 26rpx;</span><br><span class="line">		margin-left: 15rpx;</span><br><span class="line">	&#125;</span><br><span class="line">    input&#123;</span><br><span class="line">            display: inline-block;</span><br><span class="line">            width: 400rpx;</span><br><span class="line">            height: 48rpx;</span><br><span class="line">            border: none;</span><br><span class="line">            font-size: 24rpx;</span><br><span class="line">            color: <span class="comment">#999;</span></span><br><span class="line">            margin-left: 20rpx;</span><br><span class="line">            background: <span class="comment">#F6F7FA;</span></span><br><span class="line">            vertical-align: middle;</span><br><span class="line">            line-height: 48rpx;</span><br><span class="line">        &#125;</span><br><span class="line">    text&#123;</span><br><span class="line">        // display: inline-block;</span><br><span class="line">        width: 104rpx;</span><br><span class="line">        height: 52rpx;</span><br><span class="line">        background: <span class="comment">#FFB243;</span></span><br><span class="line">        border-radius: 22rpx;</span><br><span class="line">        font-size: 24rpx;</span><br><span class="line">        font-family: PingFang SC;</span><br><span class="line">        font-weight: 500;</span><br><span class="line">        color: <span class="comment">#FFFFFF;</span></span><br><span class="line">        text-align: center;</span><br><span class="line">        line-height: 52rpx;</span><br><span class="line">        vertical-align: top;</span><br><span class="line">        <span class="built_in">float</span>: right;</span><br><span class="line">        &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年11月30日 09:52</p>
+        <p>原始链接： <a class="post-url" href="/2021/11/30/vue%E5%90%84%E7%A7%8D%E7%BB%84%E4%BB%B6/" title="vue各种组件">https://corn0124.cn/2021/11/30/vue%E5%90%84%E7%A7%8D%E7%BB%84%E4%BB%B6/</a></p>
+        <footer>
+            <a href="https://corn0124.cn">
+                <img src="/images/logo.png" alt="Manchi">
+                Manchi
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我是好人
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://corn0124.cn/2021/11/30/vue%E5%90%84%E7%A7%8D%E7%BB%84%E4%BB%B6/&title=《vue各种组件》 — Manchi&pic=https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.ablesky.cn%2Fcontent%2Fpic%2Fcoursephoto%2F2017%2F11%2F09%2F7951434a-de23-49e3-8919-d237ee366911.jpg&refer=http%3A%2F%2Fpic4.ablesky.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1640827158&t=04ec93ee4a2f9823f3dc6fb685357c0c" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://corn0124.cn/2021/11/30/vue%E5%90%84%E7%A7%8D%E7%BB%84%E4%BB%B6/&title=《vue各种组件》 — Manchi&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://corn0124.cn/2021/11/30/vue%E5%90%84%E7%A7%8D%E7%BB%84%E4%BB%B6/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vue各种组件》 — Manchi&url=https://corn0124.cn/2021/11/30/vue%E5%90%84%E7%A7%8D%E7%BB%84%E4%BB%B6/&via=https://corn0124.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://corn0124.cn/2021/11/30/vue%E5%90%84%E7%A7%8D%E7%BB%84%E4%BB%B6/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://corn0124.cn/2021/11/30/vue%E5%90%84%E7%A7%8D%E7%BB%84%E4%BB%B6/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%80%9A%E8%AE%AF%E5%BD%95%E7%BB%84%E4%BB%B6"><span class="post-toc-text">通讯录组件</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/11/28/%E7%99%BD%E5%AB%96-%E8%BF%98%E5%BE%97%E6%98%AF%E4%BD%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">白嫖,还得是你</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="vue各种组件" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyvMA4bAM';
+        var conf = 'd548b5746a7aad120c27fdeee55e2737';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 Manchi<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://corn0124.cn",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
