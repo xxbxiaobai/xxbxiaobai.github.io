@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS拖拽两种实现方式 | Manchi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Manchi,Manchi's Blog" />
+  
+  <meta name="description" content="拖拽最近整理了一下以前了解过的一些小demo，就从拖拽说起吧，用原生js实现拖拽效果，大致可分为两种，一是使用鼠标事件，(mousedown、mousemove和mouseup)，二是使用H5拖拽drag与拖放drop属性，下面逐一进行代码演示: 使用鼠标事件实现拖拽效果html 123&lt;div id&#x3D;&quot;container&quot;&gt;    &lt;div id&#x3D;&amp;quot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS拖拽两种实现方式">
+<meta property="og:url" content="https://corn0124.cn/2022/01/05/JS%E6%8B%96%E6%8B%BD%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Manchi">
+<meta property="og:description" content="拖拽最近整理了一下以前了解过的一些小demo，就从拖拽说起吧，用原生js实现拖拽效果，大致可分为两种，一是使用鼠标事件，(mousedown、mousemove和mouseup)，二是使用H5拖拽drag与拖放drop属性，下面逐一进行代码演示: 使用鼠标事件实现拖拽效果html 123&lt;div id&#x3D;&quot;container&quot;&gt;    &lt;div id&#x3D;&amp;quot">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-05T03:17:08.000Z">
+<meta property="article:modified_time" content="2022-01-05T03:28:40.214Z">
+<meta property="article:author" content="Manchi">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Manchi&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Manchi&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        万籁停吹奏,支颐听秋水问蜉蝣
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Manchi" target="_blank" href="//corn0124.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/xxbxiaobai">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/6931987049">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-JS拖拽两种实现方式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      JS拖拽两种实现方式
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2022-01-05
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p><code>拖拽</code><br>最近整理了一下以前了解过的一些小demo，就从<code>拖拽</code>说起吧，用原生js实现拖拽效果，大致可分为两种，一是使用鼠标事件，(mousedown、mousemove和mouseup)，二是使用H5拖拽drag与拖放drop属性，下面逐一进行代码演示:</p>
+<h4 id="使用鼠标事件实现拖拽效果"><a href="#使用鼠标事件实现拖拽效果" class="headerlink" title="使用鼠标事件实现拖拽效果"></a>使用鼠标事件实现拖拽效果</h4><p><code>html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>css</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">       <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">       <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">       <span class="attribute">border</span>: <span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-id">#container</span>&#123;</span><br><span class="line">       <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">       <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">       <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">       <span class="attribute">position</span>: relative;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-id">#demo</span>&#123;</span><br><span class="line">       <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">       <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">       <span class="attribute">background-color</span>: <span class="number">#f40</span>;</span><br><span class="line">       <span class="attribute">position</span>: absolute;</span><br><span class="line">       <span class="attribute">cursor</span>: pointer;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><code>js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化</span></span><br><span class="line">    <span class="keyword">var</span> dragFun = <span class="function"><span class="keyword">function</span>(<span class="params">child,parent</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> drag = <span class="built_in">document</span>.getElementById(child);</span><br><span class="line">            <span class="keyword">var</span> dragContainer = <span class="built_in">document</span>.getElementById(parent) || <span class="built_in">document</span>;</span><br><span class="line">            <span class="comment">// //点击某物体时，用drag对象即可，move和up是全局区域，</span></span><br><span class="line">            <span class="comment">// 也就是整个文档通用，应该使用document对象而不是drag对象(否则，采用drag对象时物体会出现拖拽丢失)  </span></span><br><span class="line">            drag.onmousedown = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">               <span class="keyword">var</span> event = event || <span class="built_in">window</span>.event;  <span class="comment">//兼容IE浏览器</span></span><br><span class="line">            <span class="comment">//    鼠标点击物体那一刻相对于物体左侧边框的距离=点击时的位置相对于浏览器最左边的距离-物体左边框相对于浏览器最左边的距离</span></span><br><span class="line">               <span class="keyword">var</span> diffX = event.clientX - drag.offsetLeft;</span><br><span class="line">               <span class="keyword">var</span> diffY = event.clientY - drag.offsetTop;</span><br><span class="line">               <span class="keyword">if</span>(<span class="keyword">typeof</span> drag.setCapture !== <span class="string">&#x27;undefined&#x27;</span>)&#123;</span><br><span class="line">                      drag.setCapture(); <span class="comment">//设置元素对鼠标事件的捕获</span></span><br><span class="line">               &#125;</span><br><span class="line">            <span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">                <span class="keyword">var</span> event = event || <span class="built_in">window</span>.event;</span><br><span class="line">                <span class="keyword">var</span> moveX = event.clientX - diffX;</span><br><span class="line">                <span class="keyword">var</span> moveY = event.clientY - diffY;</span><br><span class="line">                <span class="keyword">if</span>(moveX &lt; <span class="number">0</span>)&#123;<span class="comment">//超出document区域适配,前提是不传父级元素的id</span></span><br><span class="line">                    moveX = <span class="number">0</span></span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(moveX &gt; <span class="built_in">window</span>.innerWidth - drag.offsetWidth)&#123;</span><br><span class="line">                    moveX = <span class="built_in">window</span>.innerWidth - drag.offsetWidth</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(moveY &lt; <span class="number">0</span>)&#123;</span><br><span class="line">                    moveY = <span class="number">0</span></span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(moveY &gt; <span class="built_in">window</span>.innerHeight - drag.offsetHeight)&#123;</span><br><span class="line">                    moveY =  <span class="built_in">window</span>.innerHeight - drag.offsetHeight</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(moveX &lt; <span class="number">0</span>)&#123;<span class="comment">//超出父级容器适配</span></span><br><span class="line">                    moveX = <span class="number">0</span></span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(moveX &gt; dragContainer.offsetWidth - drag.offsetWidth)&#123;</span><br><span class="line">                    moveX = dragContainer.offsetWidth - drag.offsetWidth</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(moveY &lt; <span class="number">0</span>)&#123;</span><br><span class="line">                    moveY = <span class="number">0</span></span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(moveY &gt; dragContainer.offsetHeight - drag.offsetHeight)&#123;</span><br><span class="line">                    moveY =  dragContainer.offsetHeight - drag.offsetHeight</span><br><span class="line">                &#125;</span><br><span class="line">                drag.style.left = moveX + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">                drag.style.top = moveY + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">document</span>.onmouseup = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.onmousemove = <span class="literal">null</span>;</span><br><span class="line">                <span class="built_in">this</span>.onmouseup = <span class="literal">null</span>;</span><br><span class="line">                 <span class="comment">//修复低版本ie bug  </span></span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">typeof</span> drag.releaseCapture!=<span class="string">&#x27;undefined&#x27;</span>)&#123;  </span><br><span class="line">                   drag.releaseCapture(); <span class="comment">//设置元素对鼠标事件的释放 </span></span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dragFun(<span class="string">&#x27;demo&#x27;</span>,<span class="string">&#x27;container&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="使用H5拖拽属性实现拖拽效果"><a href="#使用H5拖拽属性实现拖拽效果" class="headerlink" title="使用H5拖拽属性实现拖拽效果"></a>使用H5拖拽属性实现拖拽效果</h4><p><code>html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span> <span class="attr">draggable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">id</span>=<span class="string">&quot;source&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span> <span class="attr">id</span>=<span class="string">&quot;target&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>css</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">       <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">       <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">       <span class="attribute">border</span>: <span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.box1</span> &#123;</span><br><span class="line">       <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">       <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">       <span class="attribute">background</span>: salmon</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.box2</span> &#123;</span><br><span class="line">       <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">       <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">       <span class="attribute">border</span>: <span class="number">1px</span> solid black</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><code>js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">var</span> source = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;source&#x27;</span>);</span><br><span class="line">       <span class="keyword">var</span> target = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;target&#x27;</span>);</span><br><span class="line">       source.ondragstart = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">           <span class="keyword">var</span> e = event || <span class="built_in">window</span>.event</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">&#x27;开始拖拽&#x27;</span>);</span><br><span class="line">           e.dataTransfer.setData(<span class="string">&#x27;text&#x27;</span>, e.target.id);</span><br><span class="line">       &#125;</span><br><span class="line">       target.ondragenter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">&#x27;进入目标元素&#x27;</span>)</span><br><span class="line">       &#125;</span><br><span class="line">       target.ondragover = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">           <span class="keyword">var</span> event = event || <span class="built_in">window</span>.event;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">&#x27;在目标元素中拖拽&#x27;</span>);</span><br><span class="line">           event.preventDefault()</span><br><span class="line">       &#125;</span><br><span class="line">       target.ondragleave = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">&#x27;拖放离开目标元素&#x27;</span>)</span><br><span class="line">       &#125;</span><br><span class="line">       target.ondrop = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">&#x27;拖放&#x27;</span>);</span><br><span class="line">           <span class="keyword">var</span> e = event || <span class="built_in">window</span>.event</span><br><span class="line">           <span class="keyword">var</span> data = e.dataTransfer.getData(<span class="string">&#x27;text&#x27;</span>);</span><br><span class="line">           e.target.appendChild(<span class="built_in">document</span>.getElementById(data));</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2022年01月05日 11:28</p>
+        <p>原始链接： <a class="post-url" href="/2022/01/05/JS%E6%8B%96%E6%8B%BD%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" title="JS拖拽两种实现方式">https://corn0124.cn/2022/01/05/JS%E6%8B%96%E6%8B%BD%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/</a></p>
+        <footer>
+            <a href="https://corn0124.cn">
+                <img src="/images/logo.png" alt="Manchi">
+                Manchi
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我是好人
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://corn0124.cn/2022/01/05/JS%E6%8B%96%E6%8B%BD%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/&title=《JS拖拽两种实现方式》 — Manchi&pic=https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic2.zhimg.com%2F6dc74115281c7e28428800564bc2d9b3_1200x500.jpg&refer=http%3A%2F%2Fpic2.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1643944702&t=ac083a12fddce2f280f1a22b4074f993" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://corn0124.cn/2022/01/05/JS%E6%8B%96%E6%8B%BD%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/&title=《JS拖拽两种实现方式》 — Manchi&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://corn0124.cn/2022/01/05/JS%E6%8B%96%E6%8B%BD%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS拖拽两种实现方式》 — Manchi&url=https://corn0124.cn/2022/01/05/JS%E6%8B%96%E6%8B%BD%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/&via=https://corn0124.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://corn0124.cn/2022/01/05/JS%E6%8B%96%E6%8B%BD%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://corn0124.cn/2022/01/05/JS%E6%8B%96%E6%8B%BD%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%8B%96%E6%8B%BD%E6%95%88%E6%9E%9C"><span class="post-toc-text">使用鼠标事件实现拖拽效果</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8H5%E6%8B%96%E6%8B%BD%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0%E6%8B%96%E6%8B%BD%E6%95%88%E6%9E%9C"><span class="post-toc-text">使用H5拖拽属性实现拖拽效果</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/12/08/%E6%95%B0%E7%BB%84%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8C%89%E9%9C%80%E8%BD%AC%E6%8D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">数组列表与字符串按需转换</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="JS拖拽两种实现方式" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyvMA4bAM';
+        var conf = 'd548b5746a7aad120c27fdeee55e2737';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 Manchi<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://corn0124.cn",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
