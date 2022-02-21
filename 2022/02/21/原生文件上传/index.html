@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>原生文件上传 | Manchi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Manchi,Manchi's Blog" />
+  
+  <meta name="description" content="最近在移动端开发过程中上传文件时一直使用着uniapp中提供的uni.uploadFile  api,但是最近发现这个api问题还是有点大的，实测发现这个api更倾向于移动端的图片上传，对ios的文件上传不是很兼容，Android还行，但是选择文件起来还是相对较麻烦，这不经让我对uniapp组件库产生了怀疑，于是我去搜罗其论坛，发现确实存在这个问题，那没办法了，既然官方不给提供更好的解决方案，那就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生文件上传">
+<meta property="og:url" content="https://corn0124.cn/2022/02/21/%E5%8E%9F%E7%94%9F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/index.html">
+<meta property="og:site_name" content="Manchi">
+<meta property="og:description" content="最近在移动端开发过程中上传文件时一直使用着uniapp中提供的uni.uploadFile  api,但是最近发现这个api问题还是有点大的，实测发现这个api更倾向于移动端的图片上传，对ios的文件上传不是很兼容，Android还行，但是选择文件起来还是相对较麻烦，这不经让我对uniapp组件库产生了怀疑，于是我去搜罗其论坛，发现确实存在这个问题，那没办法了，既然官方不给提供更好的解决方案，那就">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-21T07:13:29.000Z">
+<meta property="article:modified_time" content="2022-02-21T08:10:28.873Z">
+<meta property="article:author" content="Manchi">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Manchi&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Manchi&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        万籁停吹奏,支颐听秋水问蜉蝣
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Manchi" target="_blank" href="//corn0124.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/xxbxiaobai">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/6931987049">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-原生文件上传" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      原生文件上传
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2022-02-21
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>最近在移动端开发过程中上传文件时一直使用着uniapp中提供的<a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/api/request/network-file?id=uploadfile">uni.uploadFile</a>  api,但是最近发现这个api问题还是有点大的，实测发现这个api更倾向于移动端的图片上传，对ios的文件上传不是很兼容，Android还行，但是选择文件起来还是相对较麻烦，这不经让我对uniapp组件库产生了怀疑，于是我去搜罗其论坛，发现确实存在这个问题，那没办法了，既然官方不给提供更好的解决方案，那就只能自己重新写个了。大致如下：</p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;view&gt;</span><br><span class="line">		&lt;view class=<span class="string">&quot;demo&quot;</span> @click=<span class="string">&quot;inputClick()&quot;</span>&gt;点我上传&lt;/view&gt;</span><br><span class="line">		&lt;view ref=<span class="string">&quot;input&quot;</span> class=<span class="string">&quot;inputFile&quot;</span>&gt;&lt;/view&gt;</span><br><span class="line">	&lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="built_in">export</span> default &#123;</span><br><span class="line">		<span class="function"><span class="title">data</span></span>() &#123;</span><br><span class="line">			<span class="built_in">return</span> &#123;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="function"><span class="title">mounted</span></span>() &#123;</span><br><span class="line">			this.fileInit(<span class="string">&#x27;input&#x27;</span>, <span class="string">&#x27;yt_file&#x27;</span>, this.newUpLoad1)</span><br><span class="line">		&#125;,</span><br><span class="line">		methods: &#123;</span><br><span class="line">			/*</span><br><span class="line">				url 服务器上传路径如（https://gl.tyj.zj.gov.cn/api-file/foreign/files-anon）;</span><br><span class="line">				fileObj 自己页面定义的input file，（例如 ： var fileObj =  document.getElementById(<span class="string">&quot;file&quot;</span>).files[0]）；</span><br><span class="line">				paramArry 参数  （无传null, 有的话传入数组对象，例如： [&#123;name:1,id:1&#125;]这种形式）；</span><br><span class="line">				func 成功返回；</span><br><span class="line">				onprogress 当前进度条状态回调；</span><br><span class="line">				error 失败回调</span><br><span class="line">			*/</span><br><span class="line">			//xhr原生上传文件</span><br><span class="line">			xhrUpladFile(url, fileObj, paramArry, func, onprogress, error) &#123;</span><br><span class="line">				var form = new FormData();</span><br><span class="line">				form.append(<span class="string">&quot;file&quot;</span>, fileObj);</span><br><span class="line">				<span class="keyword">if</span> (paramArry != null) &#123;</span><br><span class="line">					paramArry.forEach((item) =&gt; &#123;</span><br><span class="line">						form.append(item.name, item.value)</span><br><span class="line">					&#125;)</span><br><span class="line">				&#125;</span><br><span class="line">				var xhr = new XMLHttpRequest();</span><br><span class="line">				xhr.open(<span class="string">&quot;post&quot;</span>, url, <span class="literal">true</span>);</span><br><span class="line">				xhr.withCredentials = <span class="literal">true</span>;</span><br><span class="line">				xhr.upload.onprogress = <span class="keyword">function</span>(e) &#123; //上传开始执行方法</span><br><span class="line">					// console.log(<span class="string">&quot;已上传===&quot;</span> + JSON.stringify(e.loaded));</span><br><span class="line">					// console.log(<span class="string">&quot;总大小===&quot;</span> + JSON.stringify(e.total));</span><br><span class="line">					onprogress(e.loaded, e.total);</span><br><span class="line">				&#125;</span><br><span class="line">				xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">					switch (xhr.readyState) &#123;</span><br><span class="line">						<span class="keyword">case</span> 0:</span><br><span class="line">							console.log(<span class="string">&quot;请求未初始化&quot;</span>);</span><br><span class="line">							<span class="built_in">break</span>;</span><br><span class="line">						<span class="keyword">case</span> 1:</span><br><span class="line">							console.log(<span class="string">&quot;请求启动，尚未发送&quot;</span>);</span><br><span class="line">							<span class="built_in">break</span>;</span><br><span class="line">						<span class="keyword">case</span> 2:</span><br><span class="line">							console.log(<span class="string">&quot;请求发送，尚未得到响应&quot;</span>);</span><br><span class="line"></span><br><span class="line">							<span class="built_in">break</span>;</span><br><span class="line">						<span class="keyword">case</span> 3:</span><br><span class="line">							console.log(<span class="string">&quot;请求开始响应，收到部分数据&quot;</span>);</span><br><span class="line">							<span class="built_in">break</span>;</span><br><span class="line">						<span class="keyword">case</span> 4:</span><br><span class="line">							<span class="keyword">if</span> (xhr.status == 200) &#123;</span><br><span class="line">								uni.hideLoading()</span><br><span class="line">								var data = JSON.parse(xhr.responseText);</span><br><span class="line">								// console.log(JSON.stringify(data));</span><br><span class="line">								func(data);</span><br><span class="line">							&#125;</span><br><span class="line">							<span class="built_in">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				xhr.onerror = <span class="keyword">function</span>(err) &#123; //请求失败</span><br><span class="line">					console.log(<span class="string">&quot;上传失败！&quot;</span>);</span><br><span class="line">					error(err);</span><br><span class="line">				&#125;;</span><br><span class="line">				xhr.send(form); //开始上传，发送form数据</span><br><span class="line">			&#125;,</span><br><span class="line">			//文件上传初始化</span><br><span class="line">			fileInit(refId, inputId, func) &#123;</span><br><span class="line">				var input = document.createElement(<span class="string">&#x27;input&#x27;</span>)</span><br><span class="line">				input.type = <span class="string">&#x27;file&#x27;</span></span><br><span class="line">				input.id = inputId</span><br><span class="line">				input.onchange = (event) =&gt; &#123;</span><br><span class="line">					this.xhrUpladFile(<span class="string">&#x27;https://gl.tyj.zj.gov.cn/api-file/foreign/files-anon&#x27;</span>, event.target.files[0],</span><br><span class="line">						null,</span><br><span class="line">						func, this.status)</span><br><span class="line">				&#125;</span><br><span class="line">				this.<span class="variable">$refs</span>[refId].<span class="variable">$el</span>.appendChild(input)</span><br><span class="line">			&#125;,</span><br><span class="line">			newUpLoad1(data) &#123;</span><br><span class="line">				//data为上传文件接口返回的响应数据 这里可以对其进行一些了骚操作</span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="function"><span class="title">status</span></span>() &#123;</span><br><span class="line">				uni.showLoading(&#123;</span><br><span class="line">					title: <span class="string">&#x27;上传中&#x27;</span>,</span><br><span class="line">					mask:<span class="literal">true</span></span><br><span class="line">				&#125;)</span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="function"><span class="title">inputClick</span></span>() &#123;//通过其他容器来触发input原生的点击事件发起上传，原生input上传则被隐藏(改它的样式太难了，巨丑无比)</span><br><span class="line">				document.querySelector(<span class="string">&#x27;#yt_file&#x27;</span>).click()</span><br><span class="line">			&#125;,</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">	.demo&#123;</span><br><span class="line">		width: 100rpx;</span><br><span class="line">		height: 100rpx;</span><br><span class="line">		background: <span class="comment">#f40;</span></span><br><span class="line">	&#125;</span><br><span class="line">	.inputFile&#123;</span><br><span class="line">		position: absolute;</span><br><span class="line">		opacity: 0;</span><br><span class="line">		top: -99999px;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2022年02月21日 16:10</p>
+        <p>原始链接： <a class="post-url" href="/2022/02/21/%E5%8E%9F%E7%94%9F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="原生文件上传">https://corn0124.cn/2022/02/21/%E5%8E%9F%E7%94%9F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</a></p>
+        <footer>
+            <a href="https://corn0124.cn">
+                <img src="/images/logo.png" alt="Manchi">
+                Manchi
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我是好人
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://corn0124.cn/2022/02/21/%E5%8E%9F%E7%94%9F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/&title=《原生文件上传》 — Manchi&pic=https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.atguigu.com%2Fwp-content%2Fuploads%2F2019%2F07%2Fwebsd.jpg&refer=http%3A%2F%2Fwww.atguigu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648019763&t=566ac3039efa5b34fb393329c6ab15ae" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://corn0124.cn/2022/02/21/%E5%8E%9F%E7%94%9F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/&title=《原生文件上传》 — Manchi&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://corn0124.cn/2022/02/21/%E5%8E%9F%E7%94%9F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《原生文件上传》 — Manchi&url=https://corn0124.cn/2022/02/21/%E5%8E%9F%E7%94%9F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/&via=https://corn0124.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://corn0124.cn/2022/02/21/%E5%8E%9F%E7%94%9F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://corn0124.cn/2022/02/21/%E5%8E%9F%E7%94%9F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B"><span class="post-toc-text">代码如下</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/01/05/JS%E6%8B%96%E6%8B%BD%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">JS拖拽两种实现方式</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="原生文件上传" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyvMA4bAM';
+        var conf = 'd548b5746a7aad120c27fdeee55e2737';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 Manchi<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://corn0124.cn",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
