@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>带你一文了解Vue3 | Manchi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Manchi,Manchi's Blog" />
+  
+  <meta name="description" content="相对于我们开发人员来说，Vue3并不陌生，已经习惯了Vue2开发的前端工程师们注意了，你所知道的Vue3它并不只是Vue一个版本的迭代升级，而是一个质的飞跃，具有划时代里程碑的意义。那我们就简单赘述下吧： Vue3与Vue2的区别1.vue2和vue3双向数据绑定原理发生了改变 vue2 的双向数据绑定是利用ES5 的一个 API Object.definePropert()对数据进行劫持 结合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="带你一文了解Vue3">
+<meta property="og:url" content="https://corn0124.cn/2022/02/25/%E5%B8%A6%E4%BD%A0%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3Vue3/index.html">
+<meta property="og:site_name" content="Manchi">
+<meta property="og:description" content="相对于我们开发人员来说，Vue3并不陌生，已经习惯了Vue2开发的前端工程师们注意了，你所知道的Vue3它并不只是Vue一个版本的迭代升级，而是一个质的飞跃，具有划时代里程碑的意义。那我们就简单赘述下吧： Vue3与Vue2的区别1.vue2和vue3双向数据绑定原理发生了改变 vue2 的双向数据绑定是利用ES5 的一个 API Object.definePropert()对数据进行劫持 结合">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2022-02-25/07a11ab837d14d3ab7c8c28214f66b05-file.jpg">
+<meta property="og:image" content="https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2022-02-25/b31ab449c874407bb43fa1ace7d68629-file.jpg">
+<meta property="og:image" content="https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2022-02-25/cb8112342fc3427b89703c8937dfeffd-file.jpg">
+<meta property="og:image" content="https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2022-02-25/c5b3f066dcc54681a74f0815704d7e13-file.jpeg">
+<meta property="og:image" content="http://mdrs.yuanjin.tech/img/20200929170205.png">
+<meta property="og:image" content="http://mdrs.yuanjin.tech/img/20200929170304.png">
+<meta property="og:image" content="http://mdrs.yuanjin.tech/img/20200929172002.png">
+<meta property="og:image" content="http://mdrs.yuanjin.tech/img/20200929172555.png">
+<meta property="og:image" content="http://mdrs.yuanjin.tech/img/20200929172805.png">
+<meta property="article:published_time" content="2022-02-25T08:00:13.000Z">
+<meta property="article:modified_time" content="2022-02-25T08:52:28.882Z">
+<meta property="article:author" content="Manchi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2022-02-25/07a11ab837d14d3ab7c8c28214f66b05-file.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Manchi&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Manchi&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        万籁停吹奏,支颐听秋水问蜉蝣
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Manchi" target="_blank" href="//corn0124.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/xxbxiaobai">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/6931987049">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-带你一文了解Vue3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      带你一文了解Vue3
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2022-02-25
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>相对于我们开发人员来说，Vue3并不陌生，已经习惯了Vue2开发的前端工程师们注意了，你所知道的Vue3它并不只是Vue一个版本的迭代升级，而是一个质的飞跃，具有划时代里程碑的意义。那我们就简单赘述下吧：</p>
+<h3 id="Vue3与Vue2的区别"><a href="#Vue3与Vue2的区别" class="headerlink" title="Vue3与Vue2的区别"></a>Vue3与Vue2的区别</h3><h4 id="1-vue2和vue3双向数据绑定原理发生了改变"><a href="#1-vue2和vue3双向数据绑定原理发生了改变" class="headerlink" title="1.vue2和vue3双向数据绑定原理发生了改变"></a>1.vue2和vue3双向数据绑定原理发生了改变</h4><ul>
+<li>vue2 的双向数据绑定是利用ES5 的一个 API <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.definePropert()</a>对数据进行劫持 结合 发布订阅模式的方式来实现的</li>
+<li>vue3 中使用了 es6 的 ProxyAPI 对数据代理<br><code>优势如下</code>：<br>  1.defineProperty只能监听某个属性，不能对全对象监听<br>  2.可以省去for in、闭包等内容来提升效率（直接绑定整个对象即可）<br>  3.可以监听数组，不用再去单独的对数组做特异性操作 vue3可以检测到数组内部数据的变化</li>
+</ul>
+<div style="margin-top:20px;font-weight:bold">vue3的组件实例代理</div>
+<div>
+<img src="https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2022-02-25/07a11ab837d14d3ab7c8c28214f66b05-file.jpg" style="width:100%"></img>
+</div>
+<div style="margin-top:20px;font-weight:bold">vue3对ref的特殊处理</div>
+<div>
+<img src="https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2022-02-25/b31ab449c874407bb43fa1ace7d68629-file.jpg" style="width:100%"></img>
+</div>
+
+<h4 id="2-vue3支持多节点（这个就不多说了，自行脑补）"><a href="#2-vue3支持多节点（这个就不多说了，自行脑补）" class="headerlink" title="2.vue3支持多节点（这个就不多说了，自行脑补）"></a>2.vue3支持多节点（这个就不多说了，自行脑补）</h4><h4 id="3-特有的composition-api"><a href="#3-特有的composition-api" class="headerlink" title="3.特有的composition api"></a>3.特有的composition api</h4><p>这个特性使得Vue3的代码更加统一整齐，也是这个特性让vue文件的编写习惯发生了翻天覆地的变化，看图吧</p>
+<div style="display:flex;flex:1">
+<div>
+<div style="margin-top:20px;font-weight:bold">composition api</div>
+<div>
+<img src="https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2022-02-25/cb8112342fc3427b89703c8937dfeffd-file.jpg" style="width:100%"></img>
+</div>
+</div>
+<div>
+<div style="margin-top:20px;font-weight:bold">option api</div>
+<div>
+<img src="https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2022-02-25/c5b3f066dcc54681a74f0815704d7e13-file.jpeg" style="width:100%"></img></div>
+</div>
+</div>
+
+<h4 id="4-效率的飞升-开发阶段"><a href="#4-效率的飞升-开发阶段" class="headerlink" title="4.效率的飞升(开发阶段)"></a>4.效率的飞升(开发阶段)</h4><blockquote>
+<p>客户端渲染效率比vue2提升了1.3~2倍</p>
+<p>SSR渲染效率比vue2提升了2~3倍</p>
+</blockquote>
+<blockquote>
+<p>面试题：vue3的效率提升主要表现在哪些方面？</p>
+</blockquote>
+<h5 id="静态提升"><a href="#静态提升" class="headerlink" title="静态提升"></a>静态提升</h5><p>下面的静态节点会被提升</p>
+<ul>
+<li>元素节点</li>
+<li>没有绑定动态内容</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue2 的静态节点</span></span><br><span class="line"><span class="function"><span class="title">render</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  createVNode(<span class="string">&quot;h1&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;Hello World&quot;</span>)</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// vue3 的静态节点</span></span><br><span class="line"><span class="keyword">const</span> hoisted = createVNode(<span class="string">&quot;h1&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;Hello World&quot;</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 直接使用 hoisted 即可</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>静态属性会被提升</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;user&quot;</span>&gt;</span></span><br><span class="line">  &#123;&#123;user.name&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hoisted = &#123; <span class="attr">class</span>: <span class="string">&quot;user&quot;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  createVNode(<span class="string">&quot;div&quot;</span>, hoisted, user.name)</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="预字符串化"><a href="#预字符串化" class="headerlink" title="预字符串化"></a>预字符串化</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;menu-bar-container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;logo&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>logo<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;nav&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span>menu<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span>menu<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span>menu<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span>menu<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span>menu<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;user&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; user.name &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>当编译器遇到大量连续的静态内容，会直接将其编译为一个普通字符串节点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _hoisted_2 = _createStaticVNode(<span class="string">&quot;&lt;div class=\&quot;logo\&quot;&gt;&lt;h1&gt;logo&lt;/h1&gt;&lt;/div&gt;&lt;ul class=\&quot;nav\&quot;&gt;&lt;li&gt;&lt;a href=\&quot;\&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=\&quot;\&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=\&quot;\&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=\&quot;\&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=\&quot;\&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<img src="http://mdrs.yuanjin.tech/img/20200929170205.png" alt="image-20200929170205828" style="zoom:50%;" />
+
+<img src="http://mdrs.yuanjin.tech/img/20200929170304.png" alt="image-20200929170304873" style="zoom:50%;" />
+
+<h5 id="缓存事件处理函数"><a href="#缓存事件处理函数" class="headerlink" title="缓存事件处理函数"></a>缓存事件处理函数</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;count++&quot;</span>&gt;</span>plus<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue2</span></span><br><span class="line"><span class="function"><span class="title">render</span>(<span class="params">ctx</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> createVNode(<span class="string">&quot;button&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">onClick</span>: <span class="function"><span class="keyword">function</span>(<span class="params">$event</span>)</span>&#123;</span><br><span class="line">      ctx.count++;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// vue3</span></span><br><span class="line"><span class="function"><span class="title">render</span>(<span class="params">ctx, _cache</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> createVNode(<span class="string">&quot;button&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">onClick</span>: cache[<span class="number">0</span>] || (cache[<span class="number">0</span>] = <span class="function">(<span class="params">$event</span>) =&gt;</span> (ctx.count++))</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Block-Tree"><a href="#Block-Tree" class="headerlink" title="Block Tree"></a>Block Tree</h5><p>vue2在对比新旧树的时候，并不知道哪些节点是静态的，哪些是动态的，因此只能一层一层比较，这就浪费了大部分时间在比对静态节点上</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span>账号：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">&quot;user.loginId&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">&quot;user.loginPwd&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="http://mdrs.yuanjin.tech/img/20200929172002.png" alt="image-20200929172002761" style="zoom:50%;width:100%" />
+
+<img src="http://mdrs.yuanjin.tech/img/20200929172555.png" alt="image-20200929172555681" style="zoom:50%;width:100%" />
+
+<h5 id="PatchFlag"><a href="#PatchFlag" class="headerlink" title="PatchFlag"></a>PatchFlag</h5><p>vue2在对比每一个节点时，并不知道这个节点哪些相关信息会发生变化，因此只能将所有信息依次比对</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;user&quot;</span> <span class="attr">data-id</span>=<span class="string">&quot;1&quot;</span> <span class="attr">title</span>=<span class="string">&quot;user name&quot;</span>&gt;</span></span><br><span class="line">  &#123;&#123;user.name&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="http://mdrs.yuanjin.tech/img/20200929172805.png" alt="image-20200929172805674" style="zoom:50%;width:100%" />
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2022年02月25日 16:52</p>
+        <p>原始链接： <a class="post-url" href="/2022/02/25/%E5%B8%A6%E4%BD%A0%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3Vue3/" title="带你一文了解Vue3">https://corn0124.cn/2022/02/25/%E5%B8%A6%E4%BD%A0%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3Vue3/</a></p>
+        <footer>
+            <a href="https://corn0124.cn">
+                <img src="/images/logo.png" alt="Manchi">
+                Manchi
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我是好人
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://corn0124.cn/2022/02/25/%E5%B8%A6%E4%BD%A0%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3Vue3/&title=《带你一文了解Vue3》 — Manchi&pic=https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fslide.cdn.myslide.cn%2FFheJsXur6uvtqshf3vtr92Kf-4Jk%2Fslide-01.jpg&refer=http%3A%2F%2Fslide.cdn.myslide.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648368140&t=849fae4c217c614f6c90925c79a7eed5" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://corn0124.cn/2022/02/25/%E5%B8%A6%E4%BD%A0%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3Vue3/&title=《带你一文了解Vue3》 — Manchi&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://corn0124.cn/2022/02/25/%E5%B8%A6%E4%BD%A0%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3Vue3/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《带你一文了解Vue3》 — Manchi&url=https://corn0124.cn/2022/02/25/%E5%B8%A6%E4%BD%A0%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3Vue3/&via=https://corn0124.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://corn0124.cn/2022/02/25/%E5%B8%A6%E4%BD%A0%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3Vue3/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://corn0124.cn/2022/02/25/%E5%B8%A6%E4%BD%A0%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3Vue3/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue3%E4%B8%8EVue2%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-text">Vue3与Vue2的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-vue2%E5%92%8Cvue3%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%E5%8F%91%E7%94%9F%E4%BA%86%E6%94%B9%E5%8F%98"><span class="post-toc-text">1.vue2和vue3双向数据绑定原理发生了改变</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-vue3%E6%94%AF%E6%8C%81%E5%A4%9A%E8%8A%82%E7%82%B9%EF%BC%88%E8%BF%99%E4%B8%AA%E5%B0%B1%E4%B8%8D%E5%A4%9A%E8%AF%B4%E4%BA%86%EF%BC%8C%E8%87%AA%E8%A1%8C%E8%84%91%E8%A1%A5%EF%BC%89"><span class="post-toc-text">2.vue3支持多节点（这个就不多说了，自行脑补）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-%E7%89%B9%E6%9C%89%E7%9A%84composition-api"><span class="post-toc-text">3.特有的composition api</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-%E6%95%88%E7%8E%87%E7%9A%84%E9%A3%9E%E5%8D%87-%E5%BC%80%E5%8F%91%E9%98%B6%E6%AE%B5"><span class="post-toc-text">4.效率的飞升(开发阶段)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E9%9D%99%E6%80%81%E6%8F%90%E5%8D%87"><span class="post-toc-text">静态提升</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E9%A2%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%96"><span class="post-toc-text">预字符串化</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E7%BC%93%E5%AD%98%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="post-toc-text">缓存事件处理函数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Block-Tree"><span class="post-toc-text">Block Tree</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#PatchFlag"><span class="post-toc-text">PatchFlag</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/02/21/%E5%8E%9F%E7%94%9F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">原生文件上传</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="带你一文了解Vue3" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyvMA4bAM';
+        var conf = 'd548b5746a7aad120c27fdeee55e2737';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 Manchi<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://corn0124.cn",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
