@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>猫猫和狗狗——ES6新增知识点 | Manchi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Manchi,Manchi's Blog" />
+  
+  <meta name="description" content="本文就ES6新增知识点和语法糖做一个阶段性汇总更新，没有更新到的地方可能是我暂时没用到，也可能是我菜的用不着…… 数组新增方法new Set()1.什么是Set()   Set是es6新增的数据结构，似于数组，但它的一大特性就是所有元素都是唯一的，没有重复的值，我们一般称为集合。 Set本身是一个构造函数，用来生成 Set 数据结构  2、增删改查方法  添加元素add  添加某个值，返回 Set">
+<meta property="og:type" content="article">
+<meta property="og:title" content="猫猫和狗狗——ES6新增知识点">
+<meta property="og:url" content="https://corn0124.cn/2022/03/14/%E7%8C%AB%E7%8C%AB%E5%92%8C%E7%8B%97%E7%8B%97%E2%80%94%E2%80%94ES6%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
+<meta property="og:site_name" content="Manchi">
+<meta property="og:description" content="本文就ES6新增知识点和语法糖做一个阶段性汇总更新，没有更新到的地方可能是我暂时没用到，也可能是我菜的用不着…… 数组新增方法new Set()1.什么是Set()   Set是es6新增的数据结构，似于数组，但它的一大特性就是所有元素都是唯一的，没有重复的值，我们一般称为集合。 Set本身是一个构造函数，用来生成 Set 数据结构  2、增删改查方法  添加元素add  添加某个值，返回 Set">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-14T07:02:35.000Z">
+<meta property="article:modified_time" content="2022-03-14T07:44:36.387Z">
+<meta property="article:author" content="Manchi">
+<meta property="article:tag" content="猫狗日记">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Manchi&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Manchi&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        你一句春不晚，我就到了真江南
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Manchi" target="_blank" href="//corn0124.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/xxbxiaobai">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/6931987049">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-猫猫和狗狗——ES6新增知识点" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      猫猫和狗狗——ES6新增知识点
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2022-03-14
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>本文就ES6新增知识点和语法糖做一个阶段性汇总更新，没有更新到的地方可能是我暂时没用到，也可能是我菜的用不着……</p>
+<h3 id="数组新增方法"><a href="#数组新增方法" class="headerlink" title="数组新增方法"></a>数组新增方法</h3><h4 id="new-Set"><a href="#new-Set" class="headerlink" title="new Set()"></a>new Set()</h4><div style="font-weight:bold;margin-bottom:20px;font-size:1rem">1.什么是Set()</div>
+
+<ul>
+<li>Set是es6新增的数据结构，似于数组，但它的一大特性就是所有元素都是唯一的，没有重复的值，我们一般称为集合。</li>
+<li>Set本身是一个构造函数，用来生成 Set 数据结构</li>
+</ul>
+<div style="font-weight:bold;margin-bottom:20px;margin-top:10px;font-size:1rem">2、增删改查方法</div>
+
+<p><code>添加元素add</code></p>
+<ul>
+<li>添加某个值，返回 Set 结构本身，当添加实例中已经存在的元素，set不会进行处理添加<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list=new Set();</span><br><span class="line">list.add(1)</span><br><span class="line">list.add(2).add(3).add(3)   // 2只被添加了一次</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><code>删除元素delete</code></p>
+<ul>
+<li>删除某个值，返回一个布尔值，表示删除是否成功<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list=new Set([1,20,30,40])</span><br><span class="line">list.delete(30)      //删除值为30的元素，这里的30并非下标</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><code>判断某元素是否存在has</code></p>
+<ul>
+<li>返回一个布尔值，判断该值是否为Set的成员<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list=new Set([1,2,3,4])</span><br><span class="line">list.has(2)//<span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><code>清除所有元素clear</code></p>
+<ul>
+<li>清除所有成员，没有返回值<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list=new Set([1,2,3,4])</span><br><span class="line">list.clear()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<div style="font-weight:bold;margin-bottom:20px;margin-top:10px;font-size:1rem">3、遍历方法</div>
+
+<p><code>遍历 keys()</code></p>
+<ul>
+<li>返回键名的遍历器，相等于返回键值遍历器values()<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list2=new Set([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">let</span> key of list2.keys())&#123;</span><br><span class="line">   console.log(key)//a,b,c</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><code>遍历 values()</code></p>
+<ul>
+<li>返回键值的遍历器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list=new Set([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">let</span> value of list.values())&#123;</span><br><span class="line">console.log(value)//a,b,c</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><code>遍历 entries()</code></p>
+<ul>
+<li>返回键值对的遍历器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list=new Set([<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;5&#x27;</span>,<span class="string">&#x27;hello&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> item of list.entries()) &#123;</span><br><span class="line">  console.log(item);</span><br><span class="line">&#125;</span><br><span class="line">// [<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;4&#x27;</span>]   [<span class="string">&#x27;5&#x27;</span>,<span class="string">&#x27;5&#x27;</span>]   [<span class="string">&#x27;hello&#x27;</span>,<span class="string">&#x27;hello&#x27;</span>]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><code>遍历 forEach()</code></p>
+<ul>
+<li>使用回调函数遍历每个成员<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> list=new Set([<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;5&#x27;</span>,<span class="string">&#x27;hello&#x27;</span>])</span><br><span class="line">list.forEach((value, key) =&gt; console.log(key + <span class="string">&#x27; : &#x27;</span> + value))</span><br><span class="line">// 4:4    5:5   hello:hello</span><br></pre></td></tr></table></figure></li>
+</ul>
+<div style="font-weight:bold;margin-bottom:20px;margin-top:10px;font-size:1rem">4、使用情形</div>
+
+<p><code>用于数组去重</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> arr = [3, 5, 2, 2, 5, 5];</span><br><span class="line"><span class="built_in">let</span> setArr = new Set(arr)     // 返回<span class="built_in">set</span>数据结构  Set(3) &#123;3, 5, 2&#125;</span><br><span class="line"></span><br><span class="line">//方法一   es6的...解构</span><br><span class="line"><span class="built_in">let</span> unique1 =  [...setArr ];      //去重转数组后  [3,5,2]</span><br><span class="line"></span><br><span class="line">//方法二  Array.from()解析类数组为数组</span><br><span class="line"><span class="built_in">let</span> unique2 = Array.from(setArr )   //去重转数组后  [3,5,2]</span><br></pre></td></tr></table></figure>
+
+<p><code>用于字符串去重</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> str = <span class="string">&quot;352255&quot;</span>;</span><br><span class="line"><span class="built_in">let</span> unique = [...new Set(str)].join(<span class="string">&quot;&quot;</span>);     // 352 </span><br></pre></td></tr></table></figure>
+
+<p><code>实现并集、交集、和差集</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> a = new Set([1, 2, 3]);</span><br><span class="line"><span class="built_in">let</span> b = new Set([4, 3, 2]);</span><br><span class="line"></span><br><span class="line">// 并集</span><br><span class="line"><span class="built_in">let</span> union = new Set([...a, ...b]);</span><br><span class="line">// Set &#123;1, 2, 3, 4&#125;</span><br><span class="line"></span><br><span class="line">// 交集</span><br><span class="line"><span class="built_in">let</span> intersect = new Set([...a].filter(x =&gt; b.has(x)));</span><br><span class="line">// <span class="built_in">set</span> &#123;2, 3&#125;</span><br><span class="line"></span><br><span class="line">// （a 相对于 b 的）差集</span><br><span class="line"><span class="built_in">let</span> difference = new Set([...a].filter(x =&gt; !b.has(x)));</span><br><span class="line">// Set &#123;1&#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2022年03月14日 15:44</p>
+        <p>原始链接： <a class="post-url" href="/2022/03/14/%E7%8C%AB%E7%8C%AB%E5%92%8C%E7%8B%97%E7%8B%97%E2%80%94%E2%80%94ES6%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%86%E7%82%B9/" title="猫猫和狗狗——ES6新增知识点">https://corn0124.cn/2022/03/14/%E7%8C%AB%E7%8C%AB%E5%92%8C%E7%8B%97%E7%8B%97%E2%80%94%E2%80%94ES6%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%86%E7%82%B9/</a></p>
+        <footer>
+            <a href="https://corn0124.cn">
+                <img src="/images/logo.png" alt="Manchi">
+                Manchi
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我是好人
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://corn0124.cn/2022/03/14/%E7%8C%AB%E7%8C%AB%E5%92%8C%E7%8B%97%E7%8B%97%E2%80%94%E2%80%94ES6%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%86%E7%82%B9/&title=《猫猫和狗狗——ES6新增知识点》 — Manchi&pic=https://oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/zjty-oss/zjsport_filehost/2022-03-14/9684081d22ec488982ac1f13311589db-file.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://corn0124.cn/2022/03/14/%E7%8C%AB%E7%8C%AB%E5%92%8C%E7%8B%97%E7%8B%97%E2%80%94%E2%80%94ES6%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%86%E7%82%B9/&title=《猫猫和狗狗——ES6新增知识点》 — Manchi&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://corn0124.cn/2022/03/14/%E7%8C%AB%E7%8C%AB%E5%92%8C%E7%8B%97%E7%8B%97%E2%80%94%E2%80%94ES6%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%86%E7%82%B9/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《猫猫和狗狗——ES6新增知识点》 — Manchi&url=https://corn0124.cn/2022/03/14/%E7%8C%AB%E7%8C%AB%E5%92%8C%E7%8B%97%E7%8B%97%E2%80%94%E2%80%94ES6%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%86%E7%82%B9/&via=https://corn0124.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://corn0124.cn/2022/03/14/%E7%8C%AB%E7%8C%AB%E5%92%8C%E7%8B%97%E7%8B%97%E2%80%94%E2%80%94ES6%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%86%E7%82%B9/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://corn0124.cn/2022/03/14/%E7%8C%AB%E7%8C%AB%E5%92%8C%E7%8B%97%E7%8B%97%E2%80%94%E2%80%94ES6%E6%96%B0%E5%A2%9E%E7%9F%A5%E8%AF%86%E7%82%B9/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/猫狗日记/" class="color5">猫狗日记</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84%E6%96%B0%E5%A2%9E%E6%96%B9%E6%B3%95"><span class="post-toc-text">数组新增方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#new-Set"><span class="post-toc-text">new Set()</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/02/25/%E5%B8%A6%E4%BD%A0%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3Vue3/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">带你一文了解Vue3</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="猫猫和狗狗——ES6新增知识点" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyvMA4bAM';
+        var conf = 'd548b5746a7aad120c27fdeee55e2737';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 Manchi<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://corn0124.cn",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/%E7%8C%AB%E7%8B%97%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">猫狗日记</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/%E7%8C%AB%E7%8B%97%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">猫狗日记</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
